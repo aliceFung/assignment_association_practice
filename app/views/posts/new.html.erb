@@ -3,11 +3,17 @@
 
 <%= form_for @post do |f| %>
 
-<%= f.text_field :title%>
+<%= f.text_field :title%><br>
 
-<%= f.text_area :body%>
+<%= f.text_area :body%><br>
 
-<%= f.collection_check_boxes :tag_ids, @tags, :id, :name  %>
+<%= f.collection_check_boxes :tag_ids, @tags, :id, :name  %><br>
+
+<%= f.collection_radio_buttons(:authors, @users, :id, :name) %><br>
+
+<%= f.collection_select(:child_comments, @comments, :id, :body, {},
+                        :multiple => true) %><br
+>
 
 <%= f.submit %>
 <% end %>
