@@ -18,9 +18,17 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @post.child_comments.build
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(params_list)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -30,7 +38,7 @@ class PostsController < ApplicationController
   private
 
     def params_list
-      params.require(:post).permit(:title, :body,
-        { :child_comments_attributes => :body })
+      params.require(:post).permit(:title, :body, :id,
+        { :child_comments_attributes => [:body, :user_id] })
     end
 end
