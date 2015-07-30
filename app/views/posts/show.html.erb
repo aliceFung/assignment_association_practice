@@ -6,4 +6,5 @@
 <% @post.child_comments.each do |comment| %>
   <%= comment.body %>
 <% end %>
-  
+
+<%= link_to "edit", edit_post_path(@post)  %>

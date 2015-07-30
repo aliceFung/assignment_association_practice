@@ -8,7 +8,11 @@
 
 
 <%= f.fields_for :child_comments do |comment_field| %>
-
+  
+  <% if comment_field.object.persisted? %>
+    <%= comment_field.label :_destroy %>
+    <%= comment_field.check_box(:_destroy) %>
+  <% end %>  
   <%= comment_field.label :body %>
   <%= comment_field.text_field :body %>
 

@@ -7,5 +7,5 @@ class Post < ActiveRecord::Base
            :class_name => "Comment" , 
            :dependent => :destroy
 
-  accepts_nested_attributes_for :child_comments
+  accepts_nested_attributes_for :child_comments, :reject_if => :all_blank, :allow_destroy => :true
 end

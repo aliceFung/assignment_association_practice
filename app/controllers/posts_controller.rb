@@ -39,6 +39,6 @@ class PostsController < ApplicationController
 
     def params_list
       params.require(:post).permit(:title, :body, :id,
-        { :child_comments_attributes => [:body, :user_id] })
+        { :child_comments_attributes => [:body, :id, :_destroy] })
     end
 end
