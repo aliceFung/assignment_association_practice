@@ -1,2 +1,9 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+<%= f.collection_check_boxes :tag_ids, @tags, :id, :name  %><br>
+
+<%= f.collection_radio_buttons(:authors, @users, :id, :name) %><br>
+
+<%= f.collection_select(:child_comments, @comments, :id, :body, {},
+                        :multiple => true) %><br
+>

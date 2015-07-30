@@ -7,13 +7,15 @@
 
 <%= f.text_area :body%><br>
 
-<%= f.collection_check_boxes :tag_ids, @tags, :id, :name  %><br>
 
-<%= f.collection_radio_buttons(:authors, @users, :id, :name) %><br>
+<%= f.fields_for :child_comments do |comment_field| %>
+  
+  <%= comment_field.label :body %>
+  <%= comment_field.text_field :body %>
 
-<%= f.collection_select(:child_comments, @comments, :id, :body, {},
-                        :multiple => true) %><br
->
+  <% end %>
 
 <%= f.submit %>
 <% end %>
+
+

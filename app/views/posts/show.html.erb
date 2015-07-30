@@ -1,2 +1,9 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
+
+<%= @post.title %>
+<%= @post.body %>
+<% @post.child_comments.each do |comment| %>
+  <%= comment.body %>
+<% end %>
+  
